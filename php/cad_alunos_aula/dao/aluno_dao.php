@@ -31,6 +31,16 @@ class AlunoDAO {
 
         return $alunos;
     }
+
+    public function save(Aluno $aluno) {
+        $conn = conectar_db();
+
+        $sql = "INSERT INTO alunos (nome, idade, estrangeiro, id_curso)".
+            " VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$aluno->getNome(), $aluno->getIdade(), 
+                        $aluno->getEstrangeiro(), $aluno->getCurso()->getIdCurso()]);
+    }
     
 }
 

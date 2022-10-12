@@ -9,7 +9,7 @@ class CursoDAO {
     public function list() {
         $conn = conectar_db();
 
-        $sql = "SELECT * FROM cursos";
+        $sql = "SELECT * FROM cursos ORDER BY nome";
         $stm = $conn->prepare($sql);    
         $stm->execute();
         $result = $stm->fetchAll();

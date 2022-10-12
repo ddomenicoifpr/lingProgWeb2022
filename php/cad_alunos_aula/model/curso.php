@@ -7,7 +7,7 @@ class Curso {
     private $nome;
 
     //Construtor da classe
-    public function __construct($id, $nome)
+    public function __construct($id, $nome="")
     {
         $this->idCurso = $id;
         $this->nome = $nome;

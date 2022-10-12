@@ -1,6 +1,8 @@
 <?php
 #Página com o formulário para incluir um aluno
 
+include_once("controller/curso_controller.php");
+include_once("view/curso_html.php");
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +18,7 @@
 
     <br><h4>Informe os dados para inserir um aluno:</h4>
 
-    <form name="frmCadastroAlunos">
+    <form name="frmCadastroAlunos" method="POST" action="alunos_inc_exec.php">
         <table>
             <tr>
                 <td> <span>Nome:</span> </td>
@@ -41,17 +43,21 @@
                 <td> <span>Curso:</span> </td>
                 <td> 
                     <?php
-                        //Implentar consulta no banco
+                        $cursoCont = new CursoController();
+                        $cursos = $cursoCont->listar();
 
-                        //Percorrer os resultados
-
-                        //Select com as opções as opções de curso 
+                        CursoHTML::desenhaSelect($cursos, "curso_aluno");
                     ?>
                 </td>
             </tr>
         </table>
 
-
+        <br>
+        <button type="submit">Gravar</button>
+        <button type="reset">Limpar</button>
     </form>
+
+    <br>
+    <a href="index.php">Voltar</a>
 </body>
 </html>
