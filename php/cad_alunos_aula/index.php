@@ -1,5 +1,7 @@
 <?php
 include_once("util/conexao.php");
+include_once("controller/aluno_controller.php");
+include_once("view/aluno_html.php");
 
 //Teste de conexão
 $connection = conectar_db();
@@ -24,6 +26,13 @@ print_r($connection);
    <a href="alunos_inc.php">Incluir Novo Aluno</a><br><br><br>
    
    <h4>RELAÇÃO DOS ALUNOS CADASTRADOS</h4>
+
+    <?php
+        $alunoCont = new AlunoController();
+        $alunos = $alunoCont->listar(); 
+        
+        AlunoHTML::desenhaTabela($alunos);
+    ?>
 </body>
 
 </html>

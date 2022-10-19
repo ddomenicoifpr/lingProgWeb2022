@@ -26,7 +26,7 @@ include_once("view/curso_html.php");
             </tr>
             <tr>
                 <td> <span>Idade:</span> </td>
-                <td> <input type="text" name="idade_aluno" size="3" maxlength="3"/> </td>
+                <td> <input type="number" name="idade_aluno" style="width: 50px;"/> </td>
             </tr>    
 
             <tr>

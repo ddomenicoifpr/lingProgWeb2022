@@ -77,6 +77,17 @@ class Aluno {
         return $this->estrangeiro;
     }
 
+    //Exibe a informação de estrangeiro no formato Sim/Não
+    public function getEstrangeiroTexto() 
+    {
+        if($this->estrangeiro == 'S') {
+            return "Sim";
+        } elseif($this->estrangeiro == 'N')
+            return "Não";
+
+        return "Inválido";
+    }
+
     /**
      * Set the value of estrangeiro
      *
