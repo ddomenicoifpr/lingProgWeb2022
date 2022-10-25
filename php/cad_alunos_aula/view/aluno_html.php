@@ -24,12 +24,19 @@ class AlunoHTML {
             echo "<td>". $aluno->getEstrangeiroTexto() ."</td>";
             echo "<td>". $aluno->getCurso()->getNome() ."</td>";
             
+            //Editar
             echo "<td>". 
                 "<a href='alunos_alt.php?id=". $aluno->getIdAluno() . "'>".
-                "Editar" . "</a>".
+                "<img src='img/btn_editar.png'>" . "</a>".
             "</td>";
             
-            echo "<td>". "Excluir" ."</td>";
+            //Excluir
+            echo "<td>". 
+                "<a href='alunos_del_exec.php?id=". $aluno->getIdAluno() . 
+                "' onclick='return confirm(\"Confirma a exclusão do aluno?\");'".
+                ">".
+                "<img src='img/btn_excluir.png'>" . "</a>".
+            "</td>";
             
             echo "</tr>";
         endforeach;

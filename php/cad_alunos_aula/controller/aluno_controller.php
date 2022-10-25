@@ -15,8 +15,16 @@ class AlunoController {
         return $this->alunoDAO->list();
     }
 
+    public function buscarPorId($idAluno) {
+        return $this->alunoDAO->findById($idAluno);
+    }
+
     public function salvar($aluno) {
         $this->alunoDAO->save($aluno);
+    }
+
+    public function excluir($aluno) {
+        $this->alunoDAO->delete($aluno);
     }
 }
 
