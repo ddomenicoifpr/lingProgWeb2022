@@ -13,7 +13,7 @@ if($aluno != null) {
     $alunoCont->excluir($aluno);
 
     //Retornar para a página inicial
-    header("location: index.php");
+    header("location: alunos_listar.php");
 
 } else { 
     echo "O aluno de ID ".$idAluno." não existe.";

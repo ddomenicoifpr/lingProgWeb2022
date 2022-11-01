@@ -30,7 +30,8 @@ class AlunoDAO {
     public function list() {
         $conn = conectar_db();
 
-        $sql = AlunoDAO::SQL_ALUNO;
+        $sql = AlunoDAO::SQL_ALUNO . 
+                " ORDER BY a.nome";
         $stm = $conn->prepare($sql);    
         $stm->execute();
         $result = $stm->fetchAll();

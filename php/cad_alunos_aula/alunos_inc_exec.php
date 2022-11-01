@@ -25,6 +25,6 @@ $alunoCont = new AlunoController();
 $alunoCont->salvar($aluno);
 
 //Redireciona para o início
-header("location: index.php");
+header("location: alunos_listar.php");
 
 ?>

@@ -8,56 +8,50 @@ include_once("view/curso_html.php");
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISTEMA DE CADASTRO DE ALUNOS</title>
+    <?php include_once("bootstrap/head.php"); ?>
 </head>
 <body>
-    <center><h1 style="color: green;">SISTEMA DE CADASTRO DE ALUNOS</h1></center>
+    <?php include_once("bootstrap/menu.php"); ?>
 
-    <br><h4>Informe os dados para inserir um aluno:</h4>
+    <h3 class="text-center">INSERIR ALUNO</h3>
 
-    <form name="frmCadastroAlunos" method="POST" action="alunos_inc_exec.php">
-        <table>
-            <tr>
-                <td> <span>Nome:</span> </td>
-                <td> <input type="text" name="nome_aluno" size="45" maxlength="70" /> </td>
-            </tr>
-            <tr>
-                <td> <span>Idade:</span> </td>
-                <td> <input type="number" name="idade_aluno" style="width: 50px;"/> </td>
-            </tr>    
+    <div style="max-width: 50%; margin-left: 10px;">
+        <form name="frmCadastroAlunos" method="POST" action="alunos_inc_exec.php">
+            <div class="form-group">
+                <label for="txtNome">Nome:</label>
+                <input class="form-control" type="text" id="txtNome" name="nome_aluno" 
+                    size="45" maxlength="70" placeholder="Informe o nome" />
+            </div>
+            <div class="form-group">
+                <label for="txtIdade">Idade:</label>
+                <input class="form-control" type="number" id="txtIdade" name="idade_aluno" 
+                    style="width: 100px;"/>
+            </div>
+            <div class="form-group">
+                <label for="somEst">Estrangeiro:</label>
+                <select class="form-control" id="somEst" name="estrangeiro_aluno">
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select>
+            </div>    
+            <div class="form-group">
+                <label for="somCurso">Curso:</label>
+                <?php
+                    $cursoCont = new CursoController();
+                    $cursos = $cursoCont->listar();
 
-            <tr>
-                <td> <span>Estrangeiro:</span> </td>
-                <td>
-                    <select name="estrangeiro_aluno">
-                        <option value="S">Sim</option>
-                        <option value="N">Não</option>
-                    </select>
-                </td>
-            </tr>
-            
-            <tr>
-                <td> <span>Curso:</span> </td>
-                <td> 
-                    <?php
-                        $cursoCont = new CursoController();
-                        $cursos = $cursoCont->listar();
+                    CursoHTML::desenhaSelect($cursos, "curso_aluno", "somCurso");
+                ?>
+            </div>
 
-                        CursoHTML::desenhaSelect($cursos, "curso_aluno");
-                    ?>
-                </td>
-            </tr>
-        </table>
+            <button type="submit" class="btn btn-success">Gravar</button>
+            <button type="reset" class="btn btn-danger">Limpar</button>
+        </form>
 
-        <br>
-        <button type="submit">Gravar</button>
-        <button type="reset">Limpar</button>
-    </form>
+        <br><br>
+        <a class="btn btn-outline-secondary" href="alunos_listar.php">Voltar</a>
+    </div>
 
-    <br>
-    <a href="index.php">Voltar</a>
+    <?php include_once("bootstrap/footer.php"); ?>
 </body>
 </html>

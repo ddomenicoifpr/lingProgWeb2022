@@ -4,15 +4,15 @@
 class AlunoHTML {
 
     public static function desenhaTabela($alunos) {
-        echo "<table border='1'>";
+        echo "<table class='table table-striped table-bordered'>";
         
         echo "<thead>";
         echo "<th scope='col'>Nome</th>";
         echo "<th scope='col'>Idade</th>";
         echo "<th scope='col'>Estrangeiro</th>";
         echo "<th scope='col'>Curso</th>";
-        echo "<th scope='col'></th>";
-        echo "<th scope='col'></th>";
+        echo "<th scope='col'>Alterar</th>";
+        echo "<th scope='col'>Excluir</th>";
         echo "</thead>";
         
         echo "<tbody>";

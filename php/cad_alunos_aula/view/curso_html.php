@@ -3,8 +3,8 @@
 
 class CursoHTML {
 
-    public static function desenhaSelect($cursos, $name) {
-        echo "<select name='". $name ."'>";
+    public static function desenhaSelect($cursos, $name, $id) {
+        echo "<select class='form-control' name='". $name ."' id='". $id ."'>";
 
         foreach($cursos as $curso):
             echo "<option value='" .$curso->getIdCurso(). "'>". 
