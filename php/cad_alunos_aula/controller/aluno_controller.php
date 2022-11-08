@@ -23,6 +23,10 @@ class AlunoController {
         $this->alunoDAO->save($aluno);
     }
 
+    public function atualizar($aluno) {
+        $this->alunoDAO->update($aluno);
+    }
+
     public function excluir($aluno) {
         $this->alunoDAO->delete($aluno);
     }

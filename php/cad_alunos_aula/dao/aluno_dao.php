@@ -71,6 +71,18 @@ class AlunoDAO {
                         $aluno->getEstrangeiro(), $aluno->getCurso()->getIdCurso()]);
     }
 
+    public function update(Aluno $aluno) {
+        $conn = conectar_db();
+
+        $sql = "UPDATE alunos SET nome = ?, idade = ?,". 
+            " estrangeiro = ?, id_curso = ?".
+            " WHERE id_aluno = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$aluno->getNome(), $aluno->getIdade(), 
+                        $aluno->getEstrangeiro(), $aluno->getCurso()->getIdCurso(),
+                        $aluno->getIdAluno()]);
+    }
+
     public function delete(Aluno $aluno) {
         $conn = conectar_db();
 
