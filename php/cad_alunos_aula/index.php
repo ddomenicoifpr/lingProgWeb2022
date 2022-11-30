@@ -12,7 +12,7 @@
    
     <!-- Cards -->
     <div class="row" style="margin: 20px;">
-        <div class="col-12">
+        <div class="col-6">
             <div class="card text-center" style="width: 18rem;">
                 <img class="mx-auto d-block" src="img/card_alunos.png" alt="Alunos"
                     style="max-width: 200px; height: auto;">
