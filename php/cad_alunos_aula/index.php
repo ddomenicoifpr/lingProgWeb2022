@@ -1,3 +1,7 @@
+<?php
+    //Inclui a página que verifica se o usuário está logado
+    include_once("login_verifica.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 

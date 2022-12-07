@@ -19,7 +19,11 @@ function logar() {
 
     var retorno = xhttp.responseText;
 
-    var divErro = document.getElementById("divMsgErro");
-    divErro.innerHTML = retorno;
-    divErro.style.display = "block";
+    if(retorno != "") { //Possui retorno = Exibir mensagem de erro
+        var divErro = document.getElementById("divMsgErro");
+        divErro.innerHTML = retorno;
+        divErro.style.display = "block";
+    } else { //Mensagem em branco = login com sucesso
+        window.location = "index.php"; //Redireciona para o index
+    }
 }
