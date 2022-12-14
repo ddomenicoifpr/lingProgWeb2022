@@ -1,6 +1,9 @@
 <?php
 #Página com o formulário para incluir um aluno
 
+//Inclui a página que verifica se o usuário está logado
+include_once("login_verifica.php");
+
 include_once("controller/curso_controller.php");
 include_once("view/curso_html.php");
 ?>
@@ -16,7 +19,8 @@ include_once("view/curso_html.php");
     <h3 class="text-center">INSERIR ALUNO</h3>
 
     <div style="max-width: 50%; margin-left: 10px;">
-        <form name="frmCadastroAlunos" method="POST" action="alunos_inc_exec.php">
+        <form name="frmCadastroAlunos" method="POST" action="alunos_inc_exec.php" 
+            onsubmit="return validaDadosForm();">
             <div class="form-group">
                 <label for="txtNome">Nome:</label>
                 <input class="form-control" type="text" id="txtNome" name="nome_aluno" 
@@ -46,6 +50,9 @@ include_once("view/curso_html.php");
 
             <button type="submit" class="btn btn-success">Gravar</button>
             <button type="reset" class="btn btn-danger">Limpar</button>
+
+            <div id="divErro" class="alert alert-danger" 
+                style="display: none; margin-top: 20px;">Teste</div>
         </form>
 
         <br><br>
@@ -53,5 +60,7 @@ include_once("view/curso_html.php");
     </div>
 
     <?php include_once("bootstrap/footer.php"); ?>
+
+    <script src="js/alunos.js"></script>
 </body>
 </html>

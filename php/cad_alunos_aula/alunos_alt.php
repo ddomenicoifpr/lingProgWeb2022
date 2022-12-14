@@ -1,6 +1,9 @@
 <?php
 #Página com o formulário para alterar um aluno
 
+//Inclui a página que verifica se o usuário está logado
+include_once("login_verifica.php");
+
 include_once("controller/aluno_controller.php");
 include_once("controller/curso_controller.php");
 include_once("view/curso_html.php");
@@ -28,7 +31,8 @@ if($aluno == null) {
     <h3 class="text-center">ALTERAR ALUNO</h3>
 
     <div style="max-width: 50%; margin-left: 10px;">
-        <form name="frmCadastroAlunos" method="POST" action="alunos_alt_exec.php">
+        <form name="frmCadastroAlunos" method="POST" action="alunos_alt_exec.php" 
+            onsubmit="return validaDadosForm();">
             <div class="form-group">
                 <label for="txtNome">Nome:</label>
                 <input class="form-control" type="text" id="txtNome" name="nome_aluno" 
@@ -61,6 +65,9 @@ if($aluno == null) {
             <input type="hidden" name="id_aluno" value="<?php echo $aluno->getIdAluno(); ?>" />
 
             <button type="submit" class="btn btn-success">Gravar</button>
+
+            <div id="divErro" class="alert alert-danger" 
+                style="display: none; margin-top: 20px;">Teste</div>
         </form>
 
         <br><br>
@@ -68,5 +75,7 @@ if($aluno == null) {
     </div>
 
     <?php include_once("bootstrap/footer.php"); ?>
+
+    <script src="js/alunos.js"></script>
 </body>
 </html>

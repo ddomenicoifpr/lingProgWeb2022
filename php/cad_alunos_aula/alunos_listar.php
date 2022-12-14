@@ -1,4 +1,7 @@
 <?php
+//Inclui a página que verifica se o usuário está logado
+include_once("login_verifica.php");
+
 include_once("util/conexao.php");
 include_once("controller/aluno_controller.php");
 include_once("view/aluno_html.php");
